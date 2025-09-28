@@ -4,18 +4,7 @@
 
 <h1 align="center">Sonosano</h1>
 
-
-
-
-
-
-After lots discussions with several veteran contributors of Soulseek, This app is going to go thru lots of changes, and will be released after all these have been implemented. 
-
-1. Users will be forced to take a test to know whether they are even able to tell difference between High quality and low quality music
-2. No streaming, no opt out for sharing files, deleting any files will be met with penalties such as harsh rate limits
-3. The app won't have any social aspect of soulseek
-4. Sharing files will be the core feature of the app
-5. Top 50 Listings will be cached
+Launching this week
 
 If you are related to soulseek network or are an experienced contributor contact here - https://discord.gg/Np7YYEVPhR or email at - kr[5]hh@proton.me
 
