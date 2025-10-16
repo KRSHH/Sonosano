@@ -3,7 +3,7 @@
 </div>
 <p align="center">
   <img src="https://img.shields.io/github/downloads/KRSHH/Sonosano/total">
-  <img src="https://img.shields.io/discord/1411737769675329558">
+  <a href="https://discord.gg/Np7YYEVPhR"><img src="https://img.shields.io/discord/1411737769675329558"></a>
 </p>
 
 <h3 align="center"><b>Preserve, share, analyse and enjoy high quality audio</b></h3>
