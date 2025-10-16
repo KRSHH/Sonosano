@@ -1,0 +1,324 @@
+.supportSection {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.supportContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.supportText {
+  font-size: 1.2rem;
+  color: var(--text-color, white);
+  margin: 0;
+}
+
+.supportButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.supportButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.donateButton {
+  background-color: #1db954;
+  color: white;
+  border: none;
+}
+
+.donateButton:hover {
+  background-color: #1ed760;
+  transform: translateY(-2px);
+}
+
+.githubButton {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.githubButton:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.mainContainer {
+  padding: 2rem 1rem;
+  min-height: 100%;
+  overflow: visible;
+}
+
+.settingsContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.pageTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-color, white);
+  margin-bottom: 2rem;
+}
+
+.settingsSection {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color, white);
+  margin-bottom: 0.5rem;
+}
+
+.sectionDescription {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.searchModeOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.searchModeCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.searchModeCard:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.searchModeCard.selected {
+  background: rgba(29, 185, 84, 0.1);
+  border-color: #1db954;
+}
+
+.searchModeCard.selected::before {
+  content: '✓';
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 24px;
+  height: 24px;
+  background: #1db954;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.radioInput {
+  width: 20px;
+  height: 20px;
+  accent-color: #1db954;
+  cursor: pointer;
+}
+
+.modeName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color, white);
+  cursor: pointer;
+  margin: 0;
+}
+
+.modeDescription {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin: 0;
+  padding-left: 2rem;
+  line-height: 1.4;
+}
+
+.comingSoon {
+  padding: 2rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.settingOption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.settingOption:last-child {
+  border-bottom: none;
+}
+
+.settingText {
+  flex-grow: 1;
+}
+
+.settingLabel {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-color, white);
+  margin-bottom: 0.25rem;
+}
+
+.settingHint {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.toggleSwitch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.toggleSwitch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggleSwitch label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: 0.4s;
+  border-radius: 28px;
+}
+
+.toggleSwitch label:before {
+  position: absolute;
+  content: '';
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.toggleSwitch input:checked + label {
+  background-color: #1db954;
+}
+
+.toggleSwitch input:checked + label:before {
+  transform: translateX(22px);
+}
+
+@media (max-width: 768px) {
+  .principal {
+    padding: 1rem 0.5rem;
+  }
+
+  .settingsContainer {
+    max-width: 100%;
+  }
+
+  .pageTitle {
+    font-size: 2rem;
+  }
+
+  .settingsSection {
+    padding: 1.5rem;
+  }
+}
+
+.pathContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.pathInput {
+  flex-grow: 1;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-family: inherit;
+}
+
+.selectButton,
+.saveButton {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.selectButton {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.selectButton:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.saveButton {
+  background-color: #1db954;
+  color: white;
+  border: none;
+}
+
+.saveButton:hover {
+  background-color: #1ed760;
+}

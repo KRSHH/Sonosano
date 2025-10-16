@@ -1,0 +1,230 @@
+.lyricsPage {
+  width: 100%;
+  height: 100vh;
+  background: var(--secondary-black);
+  overflow: hidden;
+}
+
+.lyricsContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 24px;
+}
+
+.loadingSpinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #1db954;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingContainer p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.noSongContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 24px;
+  text-align: center;
+  padding: 40px;
+}
+
+.noSongIcon {
+  width: 120px;
+  height: 120px;
+  opacity: 0.5;
+}
+
+.noSongContainer h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.noSongContainer p {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  gap: 20px;
+  text-align: center;
+  padding: 40px;
+}
+
+.errorIcon {
+  width: 80px;
+  height: 80px;
+  opacity: 0.6;
+}
+
+.errorContainer h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.errorContainer p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0.8;
+  max-width: 500px;
+  line-height: 1.4;
+}
+
+.retryButton {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retryButton:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+.retryButton:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+  .noSongContainer {
+    padding: 24px;
+  }
+
+  .noSongIcon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .noSongContainer h2 {
+    font-size: 2rem;
+  }
+
+  .noSongContainer p {
+    font-size: 1.2rem;
+  }
+
+  .errorContainer {
+    height: 350px;
+    gap: 18px;
+    padding: 32px;
+  }
+
+  .errorIcon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .errorContainer h3 {
+    font-size: 1.8rem;
+  }
+
+  .errorContainer p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .loadingContainer {
+    padding: 20px;
+  }
+
+  .loadingSpinner {
+    width: 50px;
+    height: 50px;
+    border-width: 3px;
+  }
+
+  .loadingContainer p {
+    font-size: 1.3rem;
+  }
+
+  .noSongContainer {
+    padding: 20px;
+  }
+
+  .noSongIcon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .noSongContainer h2 {
+    font-size: 1.8rem;
+  }
+
+  .noSongContainer p {
+    font-size: 1.1rem;
+  }
+
+  .errorContainer {
+    height: 300px;
+    gap: 16px;
+    padding: 24px;
+  }
+
+  .errorIcon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .errorContainer h3 {
+    font-size: 1.6rem;
+  }
+
+  .errorContainer p {
+    font-size: 1rem;
+  }
+
+  .retryButton {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loadingSpinner {
+    animation: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+}

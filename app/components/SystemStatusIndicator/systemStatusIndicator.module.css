@@ -1,0 +1,120 @@
+.statusIndicator {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-left: 8px;
+  position: relative;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 5px,
+    0 0 10px;
+}
+
+.radarPing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: radar 2s linear infinite;
+}
+
+.statusIndicator.online .radarPing {
+  background-color: #00e600;
+  box-shadow:
+    0 0 10px #00e600,
+    0 0 20px #00e600,
+    0 0 30px #00e600;
+}
+
+.statusIndicator.online {
+  background-color: rgba(0, 230, 0, 0.15);
+}
+.statusIndicator.online .centerDot {
+  background-color: #00ff00;
+  box-shadow:
+    0 0 5px #00ff00,
+    0 0 10px #00ff00;
+}
+
+.statusIndicator.connecting .radarPing {
+  background-color: #e6e600;
+  box-shadow:
+    0 0 10px #e6e600,
+    0 0 20px #e6e600,
+    0 0 30px #e6e600;
+}
+
+.statusIndicator.connecting {
+  background-color: rgba(230, 230, 0, 0.15);
+}
+.statusIndicator.connecting .centerDot {
+  background-color: #ffff00;
+  box-shadow:
+    0 0 5px #ffff00,
+    0 0 10px #ffff00;
+}
+
+.statusIndicator.offline .radarPing {
+  background-color: #e60000;
+  box-shadow:
+    0 0 10px #e60000,
+    0 0 20px #e60000,
+    0 0 30px #e60000;
+}
+
+.statusIndicator.offline {
+  background-color: rgba(230, 0, 0, 0.15);
+}
+.statusIndicator.offline .centerDot {
+  background-color: #ff0000;
+  box-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #ff0000;
+}
+
+.statusIndicator.transferring .radarPing {
+  background-color: #0000e6;
+  box-shadow:
+    0 0 10px #0000e6,
+    0 0 20px #0000e6,
+    0 0 30px #0000e6;
+}
+
+.statusIndicator.transferring {
+  background-color: rgba(0, 0, 230, 0.15);
+}
+.statusIndicator.transferring .centerDot {
+  background-color: #0000ff;
+  box-shadow:
+    0 0 5px #0000ff,
+    0 0 10px #0000ff;
+}
+
+@keyframes radar {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.8;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}

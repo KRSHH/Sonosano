@@ -1,0 +1,230 @@
+{
+  "common": {
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "save": "Save",
+    "done": "Done",
+    "edit": "Edit",
+    "delete": "Delete",
+    "share": "Share",
+    "play": "Play",
+    "pause": "Pause",
+    "retry": "Retry",
+    "close": "Close",
+    "songs_one": "{{count}} song",
+    "songs_other": "{{count}} songs",
+    "playlist_one": "{{count}} playlist",
+    "playlist_other": "{{count}} playlists"
+  },
+  "contextMenu": {
+    "goToArtist": "Go to artist",
+    "removeFromPlaylist": "Remove from this playlist",
+    "editPlaylist": "Edit details",
+    "deletePlaylist": "Delete playlist",
+    "deleteSuccessTitle": "Playlist Deleted",
+    "deleteSuccessDescription": "The playlist has been successfully deleted.",
+    "deleteErrorTitle": "Error",
+    "deleteErrorDescription": "Could not delete the playlist. Please try again."
+  },
+  "infoPopover": {
+    "clipboardTitle": "Song info copied",
+    "clipboardDescription": "The song title and artist have been copied to your clipboard."
+  },
+  "player": {
+    "shuffle": "Enable shuffle",
+    "previous": "Previous",
+    "next": "Next",
+    "repeat": "Enable repeat"
+  },
+  "songConfig": {
+    "showInExplorer": "Show in file explorer",
+    "lyrics": "Lyrics",
+    "sleepTimer": "Sleep timer",
+    "fullscreen": "Enter full screen",
+    "mute": "Mute",
+    "unmute": "Unmute",
+    "volumeLow": "Volume low",
+    "volumeMedium": "Volume medium",
+    "volumeHigh": "Volume high",
+    "volumeOff": "Volume off"
+  },
+  "timer": {
+    "setTimer": "Set sleep timer",
+    "minutes": "{{count}} Minutes",
+    "hour_one": "{{count}} Hour",
+    "hour_other": "{{count}} Hours",
+    "custom": "Custom Hours"
+  },
+  "footer": {
+    "addToPlaylist": "Add to playlist"
+  },
+  "addToPlaylistMenu": {
+    "title": "Add to playlist",
+    "find": "Find a playlist",
+    "loading": "Loading playlists..."
+  },
+  "sidebar": {
+    "recents": "Recents",
+    "expand": "Expand sidebar",
+    "collapse": "Collapse sidebar",
+    "recentlyDownloaded": "Recently Downloaded"
+  },
+  "recentlyPlayed": {
+    "all": "All",
+    "queued": "Queued",
+    "downloading": "Downloading",
+    "noRecentDownloads": "No recent downloads",
+    "noRecentDownloadsDescription": "Downloaded files will appear here",
+    "noItemsForFilter": "No {{filter}} items",
+    "noItemsForFilterDescription": "Items matching this filter will appear here",
+    "showDetails": "Show Details",
+    "queuePosition": "Position: {{position}}",
+    "timeLeft": "{{duration}} left"
+  },
+  "status": {
+    "queued": "Queued",
+    "downloading": "Downloading",
+    "completed": "Completed",
+    "failed": "Failed",
+    "paused": "Paused",
+    "gettingStatus": "Checking...",
+    "timeout": "Timeout",
+    "disconnected": "Disconnected",
+    "userOffline": "User offline",
+    "cancelled": "Cancelled"
+  },
+  "stickyHeader": {
+    "searchPlaceholder": "What do you want to search for?",
+    "library": "Library",
+    "playlists": "Playlists",
+    "settings": "Settings",
+    "clearSearch": "Clear search"
+  },
+  "library": {
+    "title": "My Library",
+    "loading": "Connecting to backend...",
+    "errorTitle": "Error Loading Library",
+    "emptyTitle": "Your Library is Empty",
+    "emptyDescription": "Downloaded songs will appear here",
+    "refresh": "Refresh",
+    "searchPlaceholder": "Search in library...",
+    "viewGrid": "Grid view",
+    "viewList": "List view",
+    "selected": "{{count}} Selected",
+    "selectAll": "Select All",
+    "deselectAll": "Deselect All",
+    "dropToAdd": "Drop to Add",
+    "moreOptions": "More options",
+    "select": "Select",
+    "deselect": "Deselect",
+    "showInExplorer": "Show in Explorer",
+    "refreshMetadata": "Refresh Metadata",
+    "generateForensics": "Generate Forensics",
+    "generating": "Generating..."
+  },
+  "metadataModal": {
+    "title": "Add Song Information",
+    "songTitle": "Song Title *",
+    "songTitlePlaceholder": "Enter song title",
+    "artistName": "Artist Name",
+    "artistNamePlaceholder": "Enter artist name (optional)",
+    "addToLibrary": "Add to Library"
+  },
+  "lyrics": {
+    "loading": "Loading lyrics...",
+    "noSongTitle": "No song playing",
+    "noSongDescription": "Start playing a song to see its lyrics",
+    "errorTitle": "Unable to load lyrics",
+    "noLyrics": "No lyrics available for this song",
+    "provider": "Lyrics are provided by LRCLIB",
+    "instrumental": "This is an instrumental track"
+  },
+  "playlists": {
+    "title": "Your Playlists",
+    "searchPlaceholder": "Search playlists...",
+    "create": "Create Playlist",
+    "errorTitle": "Error Loading Playlists",
+    "emptySearchTitle": "No playlists found",
+    "emptySearchDescription": "No playlists match your search criteria",
+    "clearSearch": "Clear Search",
+    "emptyTitle": "No Playlists Yet",
+    "emptyDescription": "Create your first playlist to get started",
+    "createFirst": "Create Your First Playlist",
+    "play": "Play playlist",
+    "pause": "Pause playlist",
+    "duration": "{{duration}} • {{count}} Songs",
+    "editDetails": "Edit details",
+    "createModalTitle": "Create New Playlist",
+    "nameLabel": "Playlist Name *",
+    "namePlaceholder": "Enter playlist name",
+    "descriptionLabel": "Description (Optional)",
+    "descriptionPlaceholder": "Add a description for your playlist",
+    "thumbnailLabel": "Thumbnail URL (Optional)",
+    "thumbnailPlaceholder": "Enter image URL for playlist cover",
+    "loading": "Loading playlists..."
+  },
+  "playlistDetail": {
+    "type": "Playlist",
+    "created": "Created {{date}}",
+    "editTitle": "Edit Playlist",
+    "addSongsTitle": "Add Songs",
+    "moreOptions": "More options",
+    "headerTitle": "Title",
+    "headerAlbum": "Album",
+    "headerQuality": "Quality",
+    "emptyTitle": "No songs in this playlist yet",
+    "emptyDescription": "Add some songs from your library to get started",
+    "addSongs": "Add Songs",
+    "removeFromPlaylist": "Remove from playlist",
+    "editModalTitle": "Edit Playlist Details",
+    "addSongsModalTitle": "Manage Songs - {{playlistName}}",
+    "searchSongsPlaceholder": "Search songs...",
+    "noSongsInLibrary": "No songs in library",
+    "noSongsInLibraryDescription": "Download some songs first to add them to playlists",
+    "addToPlaylist": "Add to playlist"
+  },
+  "search": {
+    "all": "All",
+    "artists": "Artists",
+    "songs": "Songs",
+    "albums": "Albums",
+    "topResult": "Top result",
+    "searchOnSoulseek": "Search on Soulseek"
+  },
+  "settings": {
+    "title": "Settings",
+    "supportText": "Made with ❤️ by KRSHH",
+    "donate": "Donate",
+    "starOnGithub": "Star on GitHub",
+    "searchApi": "Search API",
+    "searchApiDescription": "Choose which search API to use for finding music",
+    "dataPath": "Data Path",
+    "dataPathDescription": "The folder where your music and application data are stored.",
+    "changeFolder": "Change Folder",
+    "saveAndRestart": "Save",
+    "saveSuccess": "Configuration saved. Please restart the application for the changes to take effect.",
+    "saveError": "Failed to save configuration.",
+    "lyrics": "Lyrics",
+    "romanize": "Romanize Lyrics",
+    "romanizeDescription": "Automatically convert lyrics from any script to the Latin alphabet.",
+    "language": "Language",
+    "languageDescription": "Choose the display language for the application."
+  },
+  "app": {
+    "updateReady": "A new version is ready. Restart to install.",
+    "restartAndInstall": "Restart and Install"
+  },
+  "songDetailSidebar": {
+    "availableFiles_one": "{{count}} Available file {{total}}",
+    "availableFiles_other": "{{count}} Available files {{total}}",
+    "noFiles": "No files found for this query.",
+    "trySearching": "Try searching for something else."
+  },
+  "systemStatus": {
+    "loading": "Loading...",
+    "backendOffline": "Backend is offline. Please restart the application.",
+    "soulseekConnecting": "Connecting to Soulseek...",
+    "transferringData": "Transferring data - Downloads: {{downloads}}, Uploads: {{uploads}}",
+    "online": "Online as {{username}} on Soulseek."
+  }
+}

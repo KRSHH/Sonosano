@@ -1,0 +1,120 @@
+.songInfoContainer {
+  padding-right: 0% !important;
+  align-items: center;
+}
+
+.songDetailsContainer {
+  padding: 0 5% 0 3%;
+  justify-content: center;
+}
+
+.thumbnailContainer {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.songInfoContainer img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: var(--border-radius-thumbnails);
+}
+
+.thumbnailPlaceholder {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--border-radius-thumbnails);
+  background: linear-gradient(135deg, var(--hover-white) 0%, var(--separator-white) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnailPlaceholder i {
+  font-size: 24px;
+  color: var(--secondary-white);
+}
+
+.songDetailsContainer button {
+  border: none;
+  background-color: transparent;
+  text-align: start;
+}
+
+.songDetailsContainer button:hover {
+  color: var(--primary-white) !important;
+  text-decoration: underline;
+}
+
+.songDetailsContainer button:first-child {
+  font-size: var(--font-size-song-footer);
+  color: var(--primary-white);
+  font-size: var(--font-size-song-footer);
+}
+
+.songDetailsContainer button:nth-child(2) {
+  font-size: var(--font-size-artist-footer);
+  color: var(--secondary-white);
+}
+
+.likeContainer {
+  justify-content: center;
+  color: var(--secondary-white);
+}
+
+.likeContainer i {
+  color: var(--secondary-white);
+}
+
+.likeContainer button:hover i {
+  color: var(--primary-white) !important;
+}
+
+.addButton svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--secondary-white);
+  transition: fill 0.2s ease;
+}
+
+.addButton:hover svg {
+  fill: var(--primary-white);
+}
+
+.addButton:focus,
+.addButton:focus-visible,
+.addButton:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.addButtonLiked svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--primary-green);
+  transition: fill 0.2s ease;
+}
+
+.addButtonLiked:hover svg {
+  fill: var(--primary-white);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+.menuWrapper {
+  position: relative;
+}
+
+.menuContainer {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(5%);
+  margin-bottom: 10px;
+  z-index: 1001;
+}

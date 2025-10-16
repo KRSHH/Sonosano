@@ -1,0 +1,22 @@
+@import './globals.css';
+@import './window.css';
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    Arial,
+    Helvetica,
+    sans-serif;
+  font-size: 14px;
+  margin: 0;
+  overflow: hidden;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+  line-height: 1.4;
+}

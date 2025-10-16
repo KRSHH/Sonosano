@@ -1,0 +1,16 @@
+node_modules
+dist
+out
+.DS_Store
+*.log*
+temp
+
+# Python
+
+venv
+__pycache__
+sonosano_data
+backend/src/config
+backend/src/downloads
+backend/src/core/downloads
+.kilocode

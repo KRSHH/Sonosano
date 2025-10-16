@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "@/app/*": ["./app/*"],
+      "@/lib/*": ["./app/lib/*"],
+      "@/resources/*": ["./resources/*"],
+      "components/*": ["app/components/*"],
+      "pages/*": ["app/pages/*"],
+      "hooks/*": ["app/hooks/*"],
+      "providers/*": ["app/providers/*"],
+      "utils/*": ["app/utils/*"],
+      "global/*": ["app/global/*"],
+      "i18n/*": ["app/i18n/*"],
+      "types/*": ["app/types/*"]
+    }
+  },
+  "files": [],
+  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.web.json" }]
+}

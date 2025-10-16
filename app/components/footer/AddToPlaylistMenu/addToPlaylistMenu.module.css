@@ -1,0 +1,195 @@
+.menuContainer {
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  color: #fff;
+  width: 280px;
+  max-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'CircularSp', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  border: 1px solid #282828;
+}
+
+.header {
+  padding: 10px 14px;
+  text-align: center;
+  border-bottom: 1px solid #282828;
+}
+
+.header h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #b3b3b3;
+}
+
+.searchContainer {
+  padding: 10px 14px;
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  background-color: #363636;
+  border: 1px solid #3e3e3e;
+  border-radius: 4px;
+  color: #fff;
+  padding: 7px 10px 7px 32px;
+  font-size: 13px;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #535353;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  fill: #b3b3b3;
+}
+
+.loading {
+  padding: 16px;
+  text-align: center;
+  color: #b3b3b3;
+}
+
+.playlistList {
+  list-style: none;
+  margin: 0;
+  padding: 0 8px;
+  overflow-y: auto;
+  flex-grow: 1;
+  min-height: 0;
+  position: relative;
+  box-shadow:
+    inset 0 5px 5px -5px rgba(0, 0, 0, 0.4),
+    inset 0 -12px 8px -8px rgba(0, 0, 0, 0.4);
+}
+
+.playlistList li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-radius: 4px;
+}
+
+.playlistList li:hover {
+  background-color: #363636;
+}
+
+.playlistInfo,
+.playlistInfo * {
+  cursor: pointer;
+}
+
+.playlistInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.thumbnail {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.playlistDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.playlistName {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.songCount {
+  font-size: 12px;
+  color: #b3b3b3;
+}
+
+.checkIcon {
+  fill: #1ed760;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #b3b3b3;
+  border-radius: 50%;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.playlistList li:hover .checkbox {
+  border-color: #fff;
+}
+
+.footer {
+  padding: 8px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  border-top: 1px solid #282828;
+}
+
+.cancelButton,
+.doneButton {
+  border: none;
+  border-radius: 500px;
+  padding: 10px 28px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancelButton {
+  background-color: transparent;
+  color: #b3b3b3;
+}
+
+.cancelButton:hover {
+  color: #fff;
+}
+
+.doneButton {
+  background-color: #fff;
+  color: #000;
+}
+
+.doneButton:hover {
+  transform: scale(1);
+}
+
+.playlistList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.playlistList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.playlistList::-webkit-scrollbar-thumb {
+  background-color: #535353;
+  border-radius: 4px;
+}
+
+.playlistList::-webkit-scrollbar-thumb:hover {
+  background-color: #6b6b6b;
+}

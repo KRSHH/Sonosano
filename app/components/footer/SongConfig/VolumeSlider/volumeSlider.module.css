@@ -1,0 +1,41 @@
+.buttonMargins {
+  margin-right: 4%;
+  position: relative;
+  z-index: 10;
+}
+
+.volumeIcon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: fill 0.2s ease-in-out;
+}
+
+.volumeButton {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 8px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+.volumeButton:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.volumeButton:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.volumeButton:focus-visible {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}

@@ -1,0 +1,28 @@
+{
+  "extends": "@electron-toolkit/tsconfig/tsconfig.web.json",
+  "include": [
+    "app/index.d.ts",
+    "app/**/*",
+    "app/lib/**/*",
+    "app/lib/conveyor/*.d.ts",
+    "resources/**/*",
+    "app/renderer/preload.d.ts"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "types": ["electron-vite/node"],
+    "paths": {
+      "@/*": ["./*"],
+      "components/*": ["app/components/*"],
+      "pages/*": ["app/pages/*"],
+      "hooks/*": ["app/hooks/*"],
+      "providers/*": ["app/providers/*"],
+      "utils/*": ["app/utils/*"],
+      "global/*": ["app/global/*"],
+      "i18n/*": ["app/i18n/*"],
+      "types/*": ["app/types/*"]
+    }
+  }
+}

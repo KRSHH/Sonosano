@@ -1,0 +1,52 @@
+.settingsContainer {
+  justify-content: center;
+  align-items: center;
+  padding-left: 0 !important;
+}
+
+.settingsContainer button {
+  color: var(--secondary-white);
+  padding: 0;
+  margin: 0 8px;
+  font-size: 1rem;
+  border: none;
+  background: transparent;
+}
+
+.settingsContainer button:hover {
+  color: var(--pure-white);
+}
+
+.settingsContainer button:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.settingsContainer button:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.settingsContainer button:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.settingsContainer button.active {
+  color: var(--secondary-green);
+}
+
+.timerButtonContainer {
+  position: relative;
+}
+
+.timerMenuWrapper {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 1001;
+}

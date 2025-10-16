@@ -1,0 +1,104 @@
+.wrapperContextMenu {
+  background-color: var(--hover-white);
+  width: 15svw;
+  border-radius: 4px;
+  color: hsla(0, 0%, 100%, 0.9);
+  padding: 4px;
+}
+
+.wrapperContextMenu ul {
+  margin: 0px;
+  padding: 1%;
+}
+
+.wrapperContextMenu ul li {
+  padding: 1%;
+  border-top: 1px solid var(--separator-white);
+  border-bottom: 1px solid var(--separator-white);
+}
+
+.wrapperContextMenu ul li:first-child {
+  border: none;
+  border-bottom: 1px solid var(--separator-white);
+}
+
+.wrapperContextMenu ul li:last-child {
+  border: none;
+}
+
+.wrapperContextMenu ul li + li {
+  border-top: none;
+}
+
+.wrapperContextMenu ul li button {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  color: inherit;
+  font-size: 0.875rem;
+  padding: 12px;
+  border-radius: 2px;
+  text-align: start;
+}
+
+.wrapperContextMenu ul button:hover {
+  background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+.wrapperContextMenuAddToPlaylist {
+  width: 15svw;
+  height: 40svh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
+
+.wrapperContextMenuAddToPlaylist::-webkit-scrollbar {
+  display: block;
+  width: 12px;
+  height: 12px;
+}
+
+.wrapperContextMenuAddToPlaylist::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 100px;
+  margin: 6px 0;
+}
+
+.wrapperContextMenuAddToPlaylist::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  min-height: 30px;
+  transition: all 0.2s ease;
+}
+
+.wrapperContextMenuAddToPlaylist:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+.wrapperContextMenuAddToPlaylist::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.45);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.wrapperContextMenuAddToPlaylist::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.6);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.wrapperContextMenuAddToPlaylist::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.wrapperContextMenuAddToPlaylist li:not(:nth-child(2)) {
+  border: none;
+}

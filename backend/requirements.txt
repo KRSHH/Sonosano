@@ -1,0 +1,14 @@
+fastapi>=0.68.0
+pydantic>=1.8.0
+mutagen>=1.45.0
+PyInstaller>=5.0.0
+uvicorn[standard]
+tinydb
+watchdog
+uroman
+requests
+librosa
+scipy
+tinytag
+bs4
+matplotlib

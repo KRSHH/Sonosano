@@ -1,0 +1,111 @@
+.playerBarContainer p {
+  margin-bottom: 0;
+  font-size: 0.75rem;
+  color: var(--primary-white);
+}
+
+.playerBarContainer {
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.buttonsPlayerContainer {
+  justify-content: center;
+  padding-top: 1.1%;
+  align-items: center;
+  transform: translateY(-3px);
+}
+
+.buttonsPlayerContainer button {
+  color: var(--secondary-white);
+  padding: 0;
+  margin: 0 16px;
+  font-size: 1.5rem;
+  border: none;
+  background-color: transparent;
+}
+
+.buttonsPlayerContainer button:hover {
+  color: var(--pure-white);
+}
+
+.activeControl {
+  color: var(--primary-green) !important;
+}
+
+.active {
+  color: var(--primary-green) !important;
+}
+
+.buttonsPlayerContainer button:nth-child(3) {
+  color: var(--pure-white);
+  font-size: 2rem;
+}
+
+.buttonsPlayerContainer button svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.buttonsPlayerContainer .playButton {
+  background-color: var(--pure-white);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease;
+}
+
+.buttonsPlayerContainer .playButton:hover {
+  transform: scale(1.04);
+}
+
+.buttonsPlayerContainer .playButton svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--primary-black);
+}
+
+.playerContainer {
+  white-space: nowrap;
+  padding-bottom: 1%;
+}
+
+.downloadStatus {
+  text-align: center;
+  padding: 0 20px;
+  margin-top: 5px;
+}
+
+.downloadStatus small {
+  color: var(--secondary-white);
+  font-size: 0.7rem;
+}
+
+.progressBar {
+  position: relative;
+  height: 3px;
+  background: var(--primary-black);
+  border-radius: 2px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.downloadProgress {
+  position: absolute;
+  height: 100%;
+  background: var(--primary-green);
+  transition: width 0.3s ease;
+}
+
+.bufferProgress {
+  position: absolute;
+  height: 100%;
+  background: var(--secondary-white);
+  opacity: 0.3;
+  transition: width 0.3s ease;
+}

@@ -1,0 +1,163 @@
+:root {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --primary-black: #000000;
+  --secondary-black: #121212;
+
+  --pure-white: #ffffff;
+  --primary-white: #dfdfdf;
+  --secondary-white: #b3b3b3;
+  --third-black: #161616;
+  --hover-white: #272727;
+  --separator-white: #3e3e3e;
+  --focus-grey-background: #333;
+
+  --primary-green: #1db954;
+  --secondary-green: #228822;
+
+  --grey: #888;
+
+  --sticky-header-blue: #1e0f44;
+
+  --app-logo-color: #9ad9ea;
+  --app-logo-color-darker: #56afc8;
+
+  --sidebar-width: min(20svw, 450px);
+  --sidebar-height: 90svh;
+
+  --footer-height: min(10svh, 100px);
+
+  --border-radius-thumbnails: 8px;
+  --border-radius-rounded-button: 25px;
+
+  --font-size-song-footer: 1.05rem;
+  --font-size-artist-footer: 0.85rem;
+
+  --pading-top-sticky-header: 3rem;
+}
+
+.wrapperNavbar,
+.header,
+.sidebar-header,
+body > div:first-child {
+  -webkit-app-region: drag;
+}
+
+header,
+.app-header,
+.main-header,
+.sidebar-header,
+.top-header,
+.wrapperStickyHeader {
+  -webkit-app-region: drag;
+}
+
+button,
+a,
+input,
+select,
+[role='button'],
+textarea,
+label,
+.interactive {
+  -webkit-app-region: no-drag !important;
+}
+
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+
+input,
+textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  cursor: text;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--primary-black);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 0 !important;
+}
+
+h5 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none !important;
+}
+
+button,
+select,
+a,
+[role='button'],
+.interactive-element {
+  -webkit-app-region: no-drag !important;
+  cursor: pointer;
+}
+
+input,
+textarea {
+  -webkit-app-region: no-drag !important;
+  cursor: text !important;
+}
+
+@media (max-width: 1600px) {
+  :root {
+    --sidebar-height: 88svh;
+
+    --footer-height: min(12svh, 100px) !important;
+
+    --font-size-song-footer: 0.85rem !important;
+    --font-size-artist-footer: 0.65rem !important;
+  }
+}

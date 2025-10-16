@@ -1,0 +1,115 @@
+button {
+  -webkit-app-region: no-drag !important;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+button * {
+  -webkit-app-region: no-drag !important;
+  pointer-events: none;
+}
+
+button:focus-visible {
+  outline: 2px solid rgba(30, 215, 96, 0.5);
+  outline-offset: 2px;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+a {
+  -webkit-app-region: no-drag !important;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  -webkit-app-region: no-drag !important;
+}
+
+.icon-button {
+  min-width: 32px;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[role='button'],
+[onclick],
+[data-clickable='true'] {
+  -webkit-app-region: no-drag !important;
+  cursor: pointer;
+}
+
+*[class*='hover']:hover {
+  -webkit-app-region: no-drag !important;
+}
+
+button,
+[role='button'] {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+li[onclick],
+li[role='button'],
+li.clickable {
+  -webkit-app-region: no-drag !important;
+  cursor: pointer;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.draggable button,
+.draggable a,
+.draggable input,
+.draggable [role='button'],
+.draggable .clickable {
+  -webkit-app-region: no-drag !important;
+}
+
+button i,
+button svg,
+a i,
+a svg,
+[role='button'] i,
+[role='button'] svg {
+  pointer-events: none;
+}
+
+button:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+button {
+  z-index: auto;
+}
+
+.fixed button,
+.absolute button,
+[style*='position: fixed'] button,
+[style*='position: absolute'] button {
+  -webkit-app-region: no-drag !important;
+}

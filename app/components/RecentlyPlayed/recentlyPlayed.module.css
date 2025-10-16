@@ -1,0 +1,496 @@
+.recentlyPlayed {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  color: var(--pure-white);
+  padding: 12px;
+  overflow: hidden;
+}
+
+.header {
+  padding: 0 16px 4px 16px;
+}
+
+.header h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--pure-white);
+  margin: 0;
+}
+
+.header i {
+  font-size: 16px;
+  color: var(--Sonosano-green);
+}
+
+.count {
+  background-color: var(--hover-white);
+  color: var(--secondary-white);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.filterTabs {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 8px 0;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.filterTab {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--pure-white);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-app-region: no-drag;
+}
+
+.filterTab:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--pure-white);
+}
+
+.filterTab.activeTab {
+  background-color: var(--pure-white);
+  color: var(--primary-black);
+  font-weight: 600;
+}
+
+.filterTab.activeTab:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.downloadList {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 16px 16px 0;
+}
+
+.downloadList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.downloadList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.downloadList::-webkit-scrollbar-thumb {
+  background: var(--separator-white);
+  border-radius: 4px;
+}
+
+.downloadList::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-white);
+}
+
+.downloadItem {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.downloadItem:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.downloadItem.expanded {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.itemHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  user-select: none;
+}
+
+.itemInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.coverArt {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.coverPlaceholder {
+  width: 64px;
+  height: 64px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--hover-white) 0%, var(--separator-white) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.coverPlaceholder i {
+  font-size: 24px;
+  color: var(--secondary-white);
+}
+
+.details {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--pure-white);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.artist {
+  font-size: 12px;
+  color: var(--secondary-white);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.statusLine {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.status i {
+  font-size: 10px;
+}
+
+.statusQueued {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+}
+
+.statusDownloading {
+  background-color: rgba(33, 150, 243, 0.1);
+  color: #2196f3;
+}
+
+.statusCompleted {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4caf50;
+}
+
+.statusFailed {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+}
+
+.statusPaused {
+  background-color: rgba(158, 158, 158, 0.1);
+  color: #9e9e9e;
+}
+
+.queuePosition {
+  font-size: 11px;
+  color: var(--tertiary-white);
+}
+
+.itemActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.itemActions button {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--secondary-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.itemActions button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--pure-white);
+  transform: scale(1.05);
+}
+
+.playButton {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: var(--secondary-white) !important;
+}
+
+.playButton {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: var(--pure-white) !important;
+}
+
+.playButton:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: var(--pure-white) !important;
+  transform: scale(1.05) !important;
+}
+
+.addButton:hover {
+  background-color: var(--Sonosano-green) !important;
+  color: var(--primary-black) !important;
+}
+
+.pauseButton:hover {
+  background-color: #2196f3 !important;
+  color: var(--pure-white) !important;
+}
+
+.resumeButton:hover {
+  background-color: #4caf50 !important;
+  color: var(--pure-white) !important;
+}
+
+.retryButton:hover {
+  background-color: #ff9800 !important;
+  color: var(--pure-white) !important;
+}
+
+.cancelButton:hover {
+  background-color: #f44336 !important;
+  color: var(--pure-white) !important;
+}
+
+.infoButton {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.infoButton:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--pure-white) !important;
+}
+
+.progressContainer {
+  padding: 0 16px 16px 16px;
+  margin-top: 8px;
+}
+
+.progressBar {
+  width: 100%;
+  height: 4px;
+  background-color: var(--separator-white);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--Sonosano-green) 0%, #1ed760 100%);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.progressInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--secondary-white);
+}
+
+.progressInfo span {
+  color: var(--secondary-white);
+}
+
+.expandedContent {
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.02);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detailRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.label {
+  color: var(--tertiary-white);
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.value {
+  color: var(--secondary-white);
+  word-break: break-word;
+}
+
+.errorValue {
+  color: #f44336;
+  word-break: break-word;
+}
+
+.pathValue {
+  color: var(--secondary-white);
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: var(--tertiary-white);
+  text-align: center;
+  padding: 20px;
+}
+
+.emptyState i {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.emptyState p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondary-white);
+  margin: 0 0 8px 0;
+}
+
+.emptyState span {
+  font-size: 12px;
+  color: var(--tertiary-white);
+}
+
+.emptyFilterState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  color: var(--tertiary-white);
+  text-align: center;
+  padding: 20px;
+}
+
+.emptyFilterState i {
+  font-size: 36px;
+  margin-bottom: 12px;
+  opacity: 0.5;
+}
+
+.emptyFilterState p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondary-white);
+  margin: 0 0 6px 0;
+}
+
+.emptyFilterState span {
+  font-size: 12px;
+  color: var(--tertiary-white);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .downloadItem {
+    font-size: 13px;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .artist {
+    font-size: 11px;
+  }
+
+  .coverArt,
+  .coverPlaceholder {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media (max-width: 768px) {
+  .itemActions button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .progressInfo {
+    font-size: 10px;
+  }
+}
+
+.playButton.playing {
+  color: var(--primary-green) !important;
+}
+
+.playButton.playing:hover {
+  color: var(--primary-green) !important;
+}
