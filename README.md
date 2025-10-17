@@ -6,7 +6,7 @@
   <a href="https://discord.gg/Np7YYEVPhR"><img src="https://img.shields.io/discord/1411737769675329558"></a>
 </p>
 
-<h3 align="center"><b>Preserve, share, analyse and enjoy high quality audio</b></h3>
+<h3 align="center"><b>Preserve, Archive, share, analyse and enjoy high quality music</b></h3>
 
 # Download
 
@@ -23,7 +23,7 @@
 # Build From Source
 
 <details>
-  <summary>I hate Electron</summary>
+  <summary>But I hate Electron</summary>
 
 ### Running without Electron (Web UI)
 
