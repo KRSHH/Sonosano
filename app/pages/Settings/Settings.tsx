@@ -34,7 +34,7 @@ export default function Settings(_props: PropsSettings) {
   // Load saved search mode from localStorage or default to timmmmy
   const [selectedSearchMode, setSelectedSearchMode] = useLocalStorage<string>('searchMode', 'apple_music')
   const [dataPath, setDataPath] = useState('')
-  const [backendUrl, setBackendUrl] = useLocalStorage<string>('backendUrl', 'http://127.0.0.1:8000')
+  const [backendUrl, setBackendUrl] = useState('http://127.0.0.1:8000')
 
   useEffect(() => {
     const fetchConfig = async () => {
@@ -50,6 +50,7 @@ export default function Settings(_props: PropsSettings) {
     const savedUrl = localStorage.getItem('backendUrl')
     if (savedUrl) {
       setBackendUrl(savedUrl)
+      apiClient.setBaseUrl(savedUrl)
     }
   }, [])
 
@@ -85,6 +86,7 @@ export default function Settings(_props: PropsSettings) {
   }
 
   const handleSaveBackendUrl = () => {
+    localStorage.setItem('backendUrl', backendUrl)
     apiClient.setBaseUrl(backendUrl)
     alert('Backend URL updated.')
   }
