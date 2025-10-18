@@ -46,6 +46,11 @@ export default function Settings(_props: PropsSettings) {
       }
     }
     fetchConfig()
+
+    const savedUrl = localStorage.getItem('backendUrl')
+    if (savedUrl) {
+      setBackendUrl(savedUrl)
+    }
   }, [])
 
   const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
