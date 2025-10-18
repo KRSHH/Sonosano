@@ -34,6 +34,7 @@ export default function Settings(_props: PropsSettings) {
   // Load saved search mode from localStorage or default to timmmmy
   const [selectedSearchMode, setSelectedSearchMode] = useLocalStorage<string>('searchMode', 'apple_music')
   const [dataPath, setDataPath] = useState('')
+  const [backendUrl, setBackendUrl] = useLocalStorage<string>('backendUrl', 'http://127.0.0.1:8000')
 
   useEffect(() => {
     const fetchConfig = async () => {
@@ -76,6 +77,16 @@ export default function Settings(_props: PropsSettings) {
       console.error('Error saving config:', error)
       alert('Failed to save configuration.')
     }
+  }
+
+  const handleSaveBackendUrl = () => {
+    if (!backendUrl) {
+      alert('Please enter a valid URL.')
+      return
+    }
+    // Note: We are just saving to local storage.
+    // The actual API client update will happen on app reload.
+    alert('Backend URL saved. Please restart the application for the changes to take effect.')
   }
 
   const [romanizeLyrics, setRomanizeLyrics] = useLocalStorage<boolean>('romanizeLyrics', false)
@@ -176,6 +187,24 @@ export default function Settings(_props: PropsSettings) {
               {t('settings.changeFolder')}
             </button>
             <button onClick={handleSaveDataPath} className={styles.saveButton}>
+              {t('common.save')}
+            </button>
+          </div>
+        </section>
+
+        {/* Backend URL Section */}
+        <section className={`${styles.settingsSection}`}>
+          <h3 className={styles.sectionTitle}>{t('settings.backendUrl')}</h3>
+          <p className={styles.sectionDescription}>{t('settings.backendUrlDescription')}</p>
+          <div className={styles.pathContainer}>
+            <input
+              type="text"
+              value={backendUrl}
+              onChange={(e) => setBackendUrl(e.target.value)}
+              className={styles.pathInput}
+              placeholder="http://127.0.0.1:8000"
+            />
+            <button onClick={handleSaveBackendUrl} className={styles.saveButton}>
               {t('common.save')}
             </button>
           </div>

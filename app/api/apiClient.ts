@@ -6,6 +6,20 @@ class ApiClient {
 
   constructor() {
     this.baseUrl = Global.backendBaseUrl
+    this.initializeBaseUrl()
+  }
+
+  private async initializeBaseUrl() {
+    try {
+      const response = await fetch(`${this.baseUrl}/api/v1/url`)
+      const data = await response.json()
+      if (data.url) {
+        this.baseUrl = data.url
+        console.log('Backend URL set to:', this.baseUrl)
+      }
+    } catch (error) {
+      console.error('Could not fetch backend URL, defaulting to local', error)
+    }
   }
 
   /**

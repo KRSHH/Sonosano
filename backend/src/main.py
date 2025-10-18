@@ -24,6 +24,9 @@ import random
 import string
 from pynicotine.config import config as pynicotine_config
 from configparser import ConfigParser
+from pyngrok import ngrok
+
+public_url = None
 
 def create_default_config_if_not_exists():
     """Create a default config file if one doesn't exist."""
@@ -137,6 +140,13 @@ app.include_router(library_routes.router, prefix="", tags=["library"])
 app.include_router(system_routes.router, prefix="", tags=["system"])
 app.include_router(playlist_routes.router, prefix="", tags=["playlists"])
 
+@app.get("/api/v1/url")
+async def get_url():
+    global public_url
+    if public_url:
+        return {"url": public_url}
+    return {"url": "http://127.0.0.1:8000"}
+
 covers_path = os.path.join(data_path, "covers")
 os.makedirs(covers_path, exist_ok=True)
 app.mount("/covers", StaticFiles(directory=covers_path), name="covers")
@@ -214,6 +224,15 @@ def main():
     import logging
 
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    
+    try:
+        global public_url
+        public_url = ngrok.connect(8000)
+        print(f"Public URL: {public_url}")
+        logging.info(f"Public URL: {public_url}")
+    except Exception as e:
+        logging.error(f"Could not start ngrok tunnel: {e}")
+
     uvicorn.run(app, host="0.0.0.0", port=8000)
 
 if __name__ == "__main__":
