@@ -29,7 +29,11 @@ class ApiClient {
    * @returns The JSON response.
    */
   private async fetch<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
-    const response = await fetch(`${this.baseUrl}${endpoint}`, options)
+    const headers = {
+      ...(options.headers || {}),
+      'ngrok-skip-browser-warning': 'true',
+    }
+    const response = await fetch(`${this.baseUrl}${endpoint}`, { ...options, headers })
     if (!response.ok) {
       throw new Error(`Failed to fetch from ${endpoint}: ${response.statusText}`)
     }

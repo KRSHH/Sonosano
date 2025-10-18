@@ -1,5 +1,4 @@
-export const backendBaseUrl: string =
-  localStorage.getItem('backendUrl')?.replace(/"/g, '') || 'http://127.0.0.1:8000' // ! no trailing slash
+export const backendBaseUrl: string = localStorage.getItem('backendUrl')?.replace(/"/g, '') || 'http://127.0.0.1:8000' // ! no trailing slash
 
 export const repositoryUrl: string = 'https://github.com/KRSHH/Sonosano/'
 
