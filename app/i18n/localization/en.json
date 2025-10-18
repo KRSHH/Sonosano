@@ -208,7 +208,9 @@
     "romanize": "Romanize Lyrics",
     "romanizeDescription": "Automatically convert lyrics from any script to the Latin alphabet.",
     "language": "Language",
-    "languageDescription": "Choose the display language for the application."
+    "languageDescription": "Choose the display language for the application.",
+    "backendUrl": "Backend URL",
+    "backendUrlDescription": "Set a custom URL for the backend server."
   },
   "app": {
     "updateReady": "A new version is ready. Restart to install.",

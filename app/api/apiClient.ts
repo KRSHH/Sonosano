@@ -1,11 +1,16 @@
-import Global from '../global/global'
+import { getBackendUrl, setBackendUrl } from './backendUrl'
 import { Playlist, Song, AudioMetadata, SoulseekFile, DownloadsAndStatusResponse } from '../types'
 
 class ApiClient {
   private baseUrl: string
 
   constructor() {
-    this.baseUrl = Global.backendBaseUrl
+    this.baseUrl = getBackendUrl()
+  }
+
+  public setBaseUrl(url: string) {
+    this.baseUrl = url
+    setBackendUrl(url)
   }
 
   /**
