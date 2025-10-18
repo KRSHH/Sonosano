@@ -1,14 +1,13 @@
 import { useQuery } from '@tanstack/react-query'
 import { apiClient } from '../api'
 import { Song } from '../types'
-import Global from '../global/global'
 
 const fetchLibrarySongs = (): Promise<Song[]> => {
   return apiClient.getLibrarySongs().then((data) =>
     data.map((song: any) => {
       const metadata = song.metadata || {}
       if (metadata.coverArt && !metadata.coverArt.startsWith('data:') && !metadata.coverArt.startsWith('http')) {
-        metadata.coverArt = `${Global.backendBaseUrl}/cover/${metadata.coverArt}`
+        metadata.coverArt = apiClient.getCoverUrl(metadata.coverArt)
       }
       return {
         id: song.path,

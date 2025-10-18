@@ -1,4 +1,4 @@
-import Global from '../../global/global'
+import { getBackendUrl } from '../../api/backendUrl'
 import { Song, PlaybackState } from '../../types'
 
 /**
@@ -105,7 +105,7 @@ export class PlaybackManager {
       console.error('PlaybackManager: Could not determine filename from path:', song.path)
       return
     }
-    const fileUrl = `${Global.backendBaseUrl}/play-file/${encodeURIComponent(fileName)}`
+    const fileUrl = `${getBackendUrl()}/play-file/${encodeURIComponent(fileName)}`
 
     if (this.audio.src !== fileUrl) {
       this.updateState({

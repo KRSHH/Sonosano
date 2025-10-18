@@ -1,4 +1,5 @@
 import { apiClient } from '../api'
+import { getBackendUrl } from '../api/backendUrl'
 
 interface CoverCacheResult {
   coverArt: string // Either local path or original URL
@@ -45,7 +46,7 @@ async function downloadCover(url: string, fileName: string): Promise<string | nu
     // Send request to backend to download and save the cover
     const response = await apiClient.downloadCover(url, fileName)
     if (response && response.file_path) {
-      return `http://localhost:8000/cover/${response.file_path}`
+      return apiClient.getCoverUrl(response.file_path)
     }
     return null
   } catch (error) {
@@ -66,7 +67,7 @@ export async function getCachedCoverUrl(
   }
 
   // Skip if already a local URL
-  if (coverUrl.includes('localhost:8000/cover/')) {
+  if (coverUrl.includes(getBackendUrl())) {
     return { coverArt: coverUrl, isLocal: true }
   }
 
