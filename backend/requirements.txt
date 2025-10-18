@@ -12,3 +12,4 @@ scipy
 tinytag
 bs4
 matplotlib
+websockets

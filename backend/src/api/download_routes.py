@@ -1,8 +1,13 @@
 import logging
 from fastapi import APIRouter, HTTPException
-from models.download_models import DownloadRequest, DownloadStatus, DownloadsAndStatusResponse
+from models.download_models import DownloadRequest, DownloadStatus, DownloadsAndStatusResponse, AlbumDownloadRequest
 from models.system_models import SystemStatus
 from core.soulseek_manager import SoulseekManager
+from core.playlist_service import PlaylistService
+from core.library_service import LibraryService
+from models.playlist_models import Playlist
+import uuid
+from datetime import datetime
 from pynicotine.core import core
 from pynicotine.config import config
 import os
@@ -11,6 +16,8 @@ import time
 router = APIRouter()
 
 soulseek_manager: SoulseekManager
+playlist_service: PlaylistService
+library_service: LibraryService
 
 def _generate_download_id(username: str, file_path: str) -> str:
     """Generates a consistent download ID."""
@@ -46,6 +53,74 @@ async def download_file(download_request: DownloadRequest):
     )
     
     return {"message": "Download started", "download_id": download_id}
+
+@router.post("/download-album")
+async def download_album(request: AlbumDownloadRequest):
+    """Downloads an entire album/folder into an organized subdirectory."""
+    if not soulseek_manager.logged_in:
+        raise HTTPException(status_code=503, detail="Not connected to Soulseek")
+
+    # Sanitize artist and album names to create a valid path
+    sanitized_artist = "".join(c for c in request.artist if c.isalnum() or c in (' ', '_')).rstrip()
+    sanitized_album = "".join(c for c in request.album if c.isalnum() or c in (' ', '_')).rstrip()
+    
+    if not sanitized_artist or not sanitized_album:
+        raise HTTPException(status_code=400, detail="Invalid artist or album name for directory creation.")
+
+    download_dir = config.sections["transfers"]["downloaddir"]
+    album_path = os.path.join(download_dir, sanitized_artist, sanitized_album)
+    
+    try:
+        os.makedirs(album_path, exist_ok=True)
+    except OSError as e:
+        logging.error(f"Failed to create directory {album_path}: {e}")
+        raise HTTPException(status_code=500, detail=f"Could not create album directory: {e}")
+
+    for file in request.files:
+        # We need to tell Soulseek to save the file in the new subdirectory
+        # Pynicotine's enqueue_download doesn't directly support subdirectories,
+        # so we rely on the fact that we've created it and the file watcher will pick it up.
+        # The filename in the download queue will be the final part of the path.
+        filename = os.path.basename(file.path)
+        destination_path = os.path.join(album_path, filename)
+
+        core.downloads.enqueue_download(
+            username=request.username,
+            virtual_path=file.path,
+            size=file.size,
+            local_path=destination_path # This tells pynicotine where to save it
+        )
+        
+        # Store metadata for the song processor
+        download_id = _generate_download_id(request.username, file.path)
+        soulseek_manager.library_service.download_metadata[download_id] = request.metadata
+    
+    # Now, create a playlist for the album
+    playlist_id = str(uuid.uuid4())
+    now = datetime.utcnow().isoformat()
+    
+    thumbnail_url = request.metadata.get('coverArtUrl') if request.metadata else None
+    thumbnail_filename = playlist_service.download_playlist_thumbnail(sanitized_album, thumbnail_url)
+
+    # Construct the relative paths for the playlist
+    song_paths = [
+        os.path.join(sanitized_artist, sanitized_album, os.path.basename(file.path)).replace('\\', '/')
+        for file in request.files
+    ]
+
+    new_playlist = Playlist(
+        id=playlist_id,
+        name=sanitized_album,
+        description=f"Album by {sanitized_artist}",
+        thumbnail=thumbnail_filename,
+        songs=song_paths,
+        createdAt=now,
+        updatedAt=now
+    )
+    
+    library_service.create_playlist(new_playlist)
+
+    return {"message": f"Album '{request.album}' download started and playlist created."}
 
 @router.get("/download-status/{username}/{file_path:path}")
 async def get_download_status(username: str, file_path: str):

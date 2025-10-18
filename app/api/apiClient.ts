@@ -1,5 +1,5 @@
 import Global from '../global/global'
-import { Playlist, Song, AudioMetadata, SoulseekFile, DownloadsAndStatusResponse } from '../types'
+import { Playlist, Song, AudioMetadata, SoulseekFile, DownloadsAndStatusResponse, UserResult, AlbumResult } from '../types'
 
 class ApiClient {
   private baseUrl: string
@@ -259,6 +259,20 @@ class ApiClient {
     token: number
   ): Promise<{ results: SoulseekFile[]; is_complete: boolean; result_count: number; actual_query: string }> {
     return this.fetch(`/search/soulseek/results/${token}`)
+  }
+
+  public startAlbumDownload(payload: {
+    username: string
+    artist: string
+    album: string
+    files: SoulseekFile[]
+    metadata: AudioMetadata
+  }): Promise<{ message: string }> {
+    return this.fetch('/download-album', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    })
   }
 }
 

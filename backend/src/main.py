@@ -14,9 +14,11 @@ from core.metadata_service import MetadataService
 from core.romanization_service import RomanizationService
 from core.song_processor import SongProcessor
 from core.playlist_service import PlaylistService
-from api import search_routes, download_routes, library_routes, system_routes, playlist_routes
+from api import search_routes, download_routes, library_routes, system_routes, playlist_routes, websocket_routes
 from api.search_routes import router as search_router
 from core.config_utils import get_config_path, get_documents_folder
+from pynicotine.events import events
+import asyncio
 
 import os
 import json
@@ -123,6 +125,9 @@ playlist_service = PlaylistService(data_path)
 
 search_routes.soulseek_manager = soulseek_manager
 download_routes.soulseek_manager = soulseek_manager
+download_routes.playlist_service = playlist_service
+download_routes.library_service = library_service
+websocket_routes.soulseek_manager = soulseek_manager
 library_routes.library_service = library_service
 playlist_routes.library_service = library_service
 playlist_routes.playlist_service = playlist_service
@@ -136,6 +141,7 @@ app.include_router(download_routes.router, prefix="", tags=["download"])
 app.include_router(library_routes.router, prefix="", tags=["library"])
 app.include_router(system_routes.router, prefix="", tags=["system"])
 app.include_router(playlist_routes.router, prefix="", tags=["playlists"])
+app.include_router(websocket_routes.router, prefix="", tags=["websockets"])
 
 covers_path = os.path.join(data_path, "covers")
 os.makedirs(covers_path, exist_ok=True)
@@ -149,6 +155,11 @@ from watchdog.observers import Observer
 from core.file_watcher import MusicFileHandler
 
 def long_running_startup_tasks():
+    def handle_new_search_results(results):
+        asyncio.run(websocket_routes.broadcast_search_results(results['search_id'], results['results']))
+
+    events.connect("new_search_results", handle_new_search_results)
+
     soulseek_manager.initialize_soulseek()
     event_thread = threading.Thread(target=soulseek_manager.process_events, daemon=True)
     event_thread.start()

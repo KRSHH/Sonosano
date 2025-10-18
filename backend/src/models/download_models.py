@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional, Dict, Any, List
 from .system_models import SystemStatus
+from .search_models import SearchResult
 
 class DownloadRequest(BaseModel):
     username: str
@@ -26,3 +27,10 @@ class DownloadedFile(BaseModel):
 class DownloadsAndStatusResponse(BaseModel):
     downloads: List[Dict[str, Any]]
     system_status: SystemStatus
+
+class AlbumDownloadRequest(BaseModel):
+    username: str
+    album: str
+    artist: str
+    files: List[SearchResult]
+    metadata: Optional[Dict[str, Any]] = None

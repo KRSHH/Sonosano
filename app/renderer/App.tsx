@@ -17,10 +17,11 @@ import LyricsPage from '../pages/Lyrics/LyricsPage'
 import Footer from '../components/footer/Footer'
 import SongDetailSidebar from '../components/SongDetailSidebar/SongDetailSidebar'
 import { SongDetailSidebarProvider, useSongDetailSidebar } from '../providers/SongDetailSidebarProvider'
+import { SearchTabProvider } from '../providers/SearchTabProvider'
 
 const AppContent = () => {
   const location = useLocation()
-  const { selectedSong, setSelectedSong, searchAbortController, setSearchAbortController } = useSongDetailSidebar()
+  const { selectedSong, setSelectedSong } = useSongDetailSidebar()
   const nodeRef = useRef(null)
 
   useEffect(() => {
@@ -45,10 +46,6 @@ const AppContent = () => {
 
   const closeSidebar = () => {
     if (selectedSong) {
-      if (searchAbortController) {
-        searchAbortController.abort()
-        setSearchAbortController(null)
-      }
       setSelectedSong(null)
     }
   }
@@ -188,7 +185,9 @@ function App() {
     <>
       <SongDetailSidebarProvider>
         <PlaybackProvider>
-          <AppContent />
+          <SearchTabProvider>
+            <AppContent />
+          </SearchTabProvider>
         </PlaybackProvider>
       </SongDetailSidebarProvider>
       {updateReady && (

@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
 
 class SearchQuery(BaseModel):
     query: str
@@ -14,3 +14,15 @@ class SearchResult(BaseModel):
     bitrate: Optional[int] = None
     quality: Optional[str] = None
     length: Optional[str] = None
+
+class AlbumResult(BaseModel):
+    album: str
+    files: List[SearchResult]
+
+class UserResult(BaseModel):
+    username: str
+    albums: List[AlbumResult]
+
+class GroupedSearchResults(BaseModel):
+    search_id: str
+    results: List[UserResult]

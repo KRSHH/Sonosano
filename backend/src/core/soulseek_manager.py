@@ -45,6 +45,9 @@ class SoulseekManager:
         username = msg.username
         results = msg.list if hasattr(msg, 'list') else []
         
+        # This is a temporary holder for this batch of results
+        batch_results = []
+
         for result in results:
             if len(result) >= 4:
                 code, path, size, ext = result[:4]
@@ -76,7 +79,33 @@ class SoulseekManager:
                         'quality': quality_str if quality_str else None,
                         'length': length_str if length_str else None
                     }
-                    self.search_results[token].append(file_info)
+                    batch_results.append(file_info)
+
+        if not batch_results:
+            return
+
+        # Group existing and new results
+        all_user_results = self.search_results[token]
+        all_user_results.extend(batch_results)
+        
+        grouped_by_album = defaultdict(list)
+        for file in all_user_results:
+            folder_path, _, _ = file['path'].rpartition('\\')
+            if not folder_path:
+                folder_path = "Unknown Album"
+            grouped_by_album[folder_path].append(file)
+
+        # Format for Pydantic models
+        albums_list = [
+            {"album": album_name, "files": files}
+            for album_name, files in grouped_by_album.items()
+        ]
+        
+        user_result = {"username": username, "albums": albums_list}
+        
+        # Emit an event with the grouped data for this user
+        # Note: This structure sends updates per user. The frontend will need to aggregate users.
+        events.emit("new_search_results", {"search_id": str(token), "results": [user_result]})
 
     def on_download_update(self, transfer, update_parent=True):
         file_path = transfer.virtual_path

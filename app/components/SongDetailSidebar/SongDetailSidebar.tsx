@@ -1,23 +1,11 @@
 import { useTranslation } from 'react-i18next'
 import * as styles from './songDetailSidebar.module.css'
-import { formatBytes, formatDuration } from '../../utils/format'
-import { sortSoulseekFiles } from '../../utils/fileSorter'
+import { formatDuration } from '../../utils/format'
 import { useSongDetailSidebar } from '../../providers/SongDetailSidebarProvider'
-import { getStatusMessageKey, getStatusColor } from '../../utils/statusUtils'
 
 const SongDetailSidebar = () => {
-  const { t } = useTranslation() // <-- Use hook
-  const {
-    selectedSong,
-    soulseekFiles,
-    downloadStatus,
-    handleDownloadFile,
-    sidebarLoading,
-    searchQuery,
-    setSelectedSong,
-  } = useSongDetailSidebar()
-
-  const sortedFiles = sortSoulseekFiles(soulseekFiles, searchQuery)
+  const { t } = useTranslation()
+  const { selectedSong, setSelectedSong } = useSongDetailSidebar()
 
   const onClose = () => {
     setSelectedSong(null)
@@ -27,17 +15,13 @@ const SongDetailSidebar = () => {
     return null
   }
 
-  // Use the searchQuery passed from parent which contains the actual query used by backend
-  const displayQuery = searchQuery || `${selectedSong.artist || ''} ${selectedSong.title}`.trim()
-
   return (
     <div className={styles.sidebarContainer}>
-      {/* Close button */}
       <button
         className={styles.closeButton}
         onClick={(e) => {
           e.preventDefault()
-          e.stopPropagation() // Prevent event bubbling
+          e.stopPropagation()
           onClose()
         }}
         aria-label="Close sidebar"
@@ -77,108 +61,6 @@ const SongDetailSidebar = () => {
           {selectedSong.length && <p className={styles.songDuration}>{formatDuration(selectedSong.length)}</p>}
         </div>
       </div>
-
-      <div className={styles.filesHeader}>
-        <h3 className={styles.filesTitle}>
-          {t('songDetailSidebar.availableFiles', {
-            count: sortedFiles.length,
-            total: soulseekFiles.length > 100 ? ` of ${soulseekFiles.length}` : '',
-          })}
-          - <span className={styles.searchQuery}>"{displayQuery}"</span>
-        </h3>
-      </div>
-
-      {sidebarLoading ? (
-        <div className={styles.loadingContainer}>
-          <div className={styles.spinner}></div>
-        </div>
-      ) : (
-        <div className={styles.filesList}>
-          {sortedFiles.length > 0 ? (
-            sortedFiles.map((file) => {
-              const isLossless =
-                file.extension?.toLowerCase() === '.flac' ||
-                file.extension?.toLowerCase() === '.wav' ||
-                file.quality?.toLowerCase().includes('lossless') ||
-                file.path.toLowerCase().endsWith('.flac') ||
-                file.path.toLowerCase().endsWith('.wav')
-              return (
-                <div key={file.id} className={`${styles.fileItem} ${isLossless ? styles.losslessFile : ''}`}>
-                  <div className={styles.fileDetails}>
-                    <h4 className={styles.fileName}>{file.path.split('\\').pop()}</h4>
-                    <div className={styles.fileMetadata}>
-                      <span>{formatBytes(file.size)}</span>
-                      {file.length && (
-                        <span className={styles.lengthTag}>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="12"
-                            height="12"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className={styles.clockIcon}
-                          >
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                          </svg>
-                          {file.length}
-                        </span>
-                      )}
-                      {file.quality && <span className={styles.qualityTag}>{file.quality}</span>}
-                      {file.extension && (
-                        <span className={styles.qualityTag}>{file.extension.replace('.', '').toUpperCase()}</span>
-                      )}
-                    </div>
-                  </div>
-
-                  {downloadStatus[file.id] ? (
-                    <div className={styles.downloadStatus}>
-                      <div className={styles.statusInfo}>
-                        <span className={`${styles.statusBadge} ${getStatusColor(downloadStatus[file.id].status)}`}>
-                          {t(getStatusMessageKey(downloadStatus[file.id].status))}
-                        </span>
-                        {downloadStatus[file.id].status === 'Transferring' && (
-                          <span className={styles.percentage}>{downloadStatus[file.id].percent.toFixed(0)}%</span>
-                        )}
-                      </div>
-
-                      {downloadStatus[file.id].status === 'Transferring' && (
-                        <div className={styles.progressBar}>
-                          <div
-                            className={styles.progressFill}
-                            style={{ width: `${downloadStatus[file.id].percent}%` }}
-                          ></div>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <button
-                      className={styles.downloadButton}
-                      onClick={() => handleDownloadFile(file)}
-                      // Disable the button if a download is queued or in progress
-                      disabled={
-                        downloadStatus[file.id] &&
-                        !['Finished', 'Error', 'Cancelled'].includes(downloadStatus[file.id].status)
-                      }
-                    >
-                      <i className="fa-solid fa-download"></i>
-                    </button>
-                  )}
-                </div>
-              )
-            })
-          ) : (
-            <div className={styles.noFiles}>
-              <p>{t('songDetailSidebar.noFiles')}</p>
-              <p className={styles.subtext}>{t('songDetailSidebar.trySearching')}</p>
-            </div>
-          )}
-        </div>
-      )}
     </div>
   )
 }

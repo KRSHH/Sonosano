@@ -57,7 +57,6 @@ export interface DownloadItem {
   timestamp: Date
 }
 export interface SoulseekFile {
-  id: string
   path: string
   size: number
   username: string
@@ -65,6 +64,16 @@ export interface SoulseekFile {
   bitrate?: number
   quality?: string
   length?: string
+}
+
+export interface AlbumResult {
+  album: string
+  files: SoulseekFile[]
+}
+
+export interface UserResult {
+  username: string
+  albums: AlbumResult[]
 }
 
 export interface DownloadStatus {
@@ -101,4 +110,13 @@ export interface SystemStatus {
 export interface DownloadsAndStatusResponse {
   downloads: DownloadItem[]
   system_status: SystemStatus
+}
+
+export interface MusicBrainzRecording {
+  id: string
+  title: string
+  artist?: string
+  album?: string
+  coverArt?: string
+  length?: number
 }
