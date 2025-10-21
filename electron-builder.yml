@@ -4,28 +4,16 @@ directories:
   output: 'dist'
   buildResources: 'resources'
 files:
-  - '**/*'
-  - '!**/*.ts'
-  - '!*.code-workspace'
-  - '!LICENSE.md'
-  - '!package.json'
-  - '!package-lock.json'
-  - '!electron.vite.config.ts'
-  - '!README.md'
-  - '!tsconfig.json'
-  - '!tsconfig.node.json'
-  - '!tsconfig.web.json'
-  - '!vite.config.ts'
-  - '!src/'
-  - '!.github/'
-  - '!backend/'
+  - 'out/main/**/*'
+  - 'out/preload/**/*'
+  - 'out/renderer/**/*'
+  - 'package.json'
+asarUnpack: []
 extraResources:
   - from: 'backend/dist'
     to: 'backend'
     filter:
       - '**/*'
-asarUnpack:
-  - '**/node_modules/**'
 win:
   executableName: Sonosano
   icon: assets/icon.ico

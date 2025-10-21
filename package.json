@@ -1,6 +1,6 @@
 {
   "name": "Sonosano",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "P2P Song Player",
   "main": "./out/main/main.js",
   "license": "MIT",
