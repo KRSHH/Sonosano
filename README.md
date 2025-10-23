@@ -110,7 +110,7 @@
 ---
 
 **Can it replace my current music streaming service/provider?**
-> No, this is not a replacement, they are simply are a lot more convenient, thats why only enthusiasts actually stick around.
+> No, this is not a replacement, they are simply a lot more convenient, thats why only enthusiasts actually stick around.
 
 ---
 
@@ -126,6 +126,11 @@
 
 **Do I have to setup anything else to use the app?**
 > No, besides network requirments, its standalone.
+
+---
+
+**What does Sonosano mean?**
+> Pure/healthy Sound, name inspired from 20th century grape bricks.
 
 # Contributing
 
