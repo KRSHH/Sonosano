@@ -99,6 +99,11 @@
 
 # FAQ
 
+**Will there only be one P2P source?**
+> No, making it a large P2P source aggregator is the grand plan.
+
+---
+
 **Which files does this app reshare back to the P2P network?**
 > Every single one of the file that you download or put in your library gets reshared back.
 
