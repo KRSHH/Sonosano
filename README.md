@@ -96,6 +96,37 @@
 </table>
 </div>
 
+
+# FAQ
+
+**Which files does this app reshare back to the P2P network?**
+> Every single one of the file that you download or put in your library gets reshared back.
+
+---
+
+**How is it different from any other P2P client?**
+> It's not, infact, it uses well known and maintained Nicotine+ in backend.
+
+---
+
+**Can it replace my current music streaming service/provider?**
+> No, this is not a replacement, they are simply are a lot more convenient, thats why only enthusiasts actually stick around.
+
+---
+
+**How accurate is the fake flac analyser?**
+> The algo works well with low effort fake flac (which are the most popular type of fakes) and fails with old files but, it just tags the audio and doesn't actually remove them so that you can see for yourself too.
+
+---
+
+**How big is the library?**
+> Depends. larger than any other service, but you might find things there that you can't here.
+
+---
+
+**Do I have to setup anything else to use the app?**
+> No, besides network requirments, its standalone.
+
 # Contributing
 
 ### Read this before contributing
