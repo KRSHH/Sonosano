@@ -136,7 +136,7 @@ class SoulseekManager:
             "network_filter", "statistics", "search", "downloads", "uploads",
             "interests", "userbrowse", "userinfo", "buddies", "chatrooms",
             "privatechat", "pluginhandler", "cli"
-        }, isolated_mode=True)
+        })
         
         events.connect("server-login", self.on_login)
         events.connect("server-disconnect", self.on_disconnect)
