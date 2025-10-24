@@ -3,7 +3,7 @@
   "version": "0.3.2",
   "description": "P2P Song Player",
   "main": "./out/main/main.js",
-  "license": "Apache-2.0 license",
+  "license": "GNU General Public License v3.0",
   "author": {
     "name": "KRSHH",
     "url": "https://github.com/KRSHH/Sonosano"
