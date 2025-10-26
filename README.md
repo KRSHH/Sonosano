@@ -1,10 +1,6 @@
 <div align="center">
   <img src="assets/readme/Banner.png" width="100%">
 </div>
-<p align="center">
-  <img src="https://img.shields.io/github/downloads/KRSHH/Sonosano/total">
-  <a href="https://discord.gg/Np7YYEVPhR"><img src="https://img.shields.io/discord/1411737769675329558"></a>
-</p>
 
 <h3 align="center"><b>Preserve, Archive, share, analyse and enjoy high quality music</b></h3>
 
@@ -98,6 +94,11 @@
 
 
 # FAQ
+
+**Does this app stream from peers?**
+> No, It does not stream from peers, it streams from the user himself after the file is saved.
+
+---
 
 **Will there only be one P2P source?**
 > No, making it a large P2P source aggregator is the grand plan.
