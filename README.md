@@ -138,6 +138,53 @@
 **What does Sonosano mean?**
 > Pure/healthy Sound, name inspired from 20th century grape bricks.
 
+# The Sonosano Team
+
+<h4>Development</h4>
+<table>
+  <tbody>
+    <tr>
+      <td style="padding-right: 15px;">
+        <img src="https://github.com/user-attachments/assets/3896d38d-29ab-4569-88c7-8369eb1d92b8" alt="KRSHH" width="40" height="40" object-fit: cover; display: block;">
+      </td>
+      <td style="vertical-align: middle;">
+        <b>KRSHH</b> - Unemployed af (email in bio)
+      </td>
+      <td style="vertical-align: middle; padding-left: 25px;">
+        made the app
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4>Community</h4>
+<table>
+  <tbody>
+    <tr>
+      <td style="padding-right: 15px;">
+        <img src="https://github.com/user-attachments/assets/3e3b8ca0-2617-42e1-b249-25d50903ad24" alt="Kudzu" width="40" height="40" object-fit: cover; display: block;">
+      </td>
+      <td style="vertical-align: middle;">
+        <b>Kudzu (Rohan Dayal)</b> - The Real G
+      </td>
+      <td style="vertical-align: middle; padding-left: 25px;">
+        <b>DAY ONE</b>, Setup discord
+      </td>
+    </tr>
+    <tr>
+      <td style="padding-right: 15px;">
+        <img src="https://github.com/user-attachments/assets/a8065fb9-0c57-4272-9fa9-4c1e8168b9b3" alt="FxGaming" width="40" height="40"  object-fit: cover; display: block;">
+      </td>
+      <td style="vertical-align: middle;">
+        <b>FxGaming</b> - Killer fish from sandiego
+      </td>
+      <td style="vertical-align: middle; padding-left: 25px;">
+        spotted bugs and support
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 # Contributing
 
 ### Read this before contributing
