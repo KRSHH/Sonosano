@@ -195,7 +195,7 @@ export default function Playlists({ refreshSidebarData }: PlaylistsProps) {
       await apiClient.deletePlaylist(playlistId)
       setPlaylists((prevPlaylists) => prevPlaylists.filter((p) => p.id !== playlistId))
       refreshSidebarData?.()
-    } catch (error) {
+    } catch {
       setError('Failed to delete playlist')
       loadPlaylists()
     }

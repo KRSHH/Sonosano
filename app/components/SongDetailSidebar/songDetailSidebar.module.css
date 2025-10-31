@@ -118,16 +118,82 @@
 }
 
 .filesHeader {
-  padding: 12px 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 20px 10px;
+  border-bottom: 1px solid #282828;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .filesTitle {
-  font-size: 1rem;
-  font-weight: bold;
-  color: var(--pure-white);
+  font-size: 14px;
+  color: #b3b3b3;
   margin: 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 4px;
+}
+
+.dropdownContainer {
+  position: relative;
+  min-width: 140px;
+  margin: 0 0 10px 0;
+  width: 100%;
+}
+
+.fileTypeDropdown {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--pure-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 8px 32px 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  outline: none;
+  font-weight: 500;
+}
+
+.fileTypeDropdown:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.fileTypeDropdown:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 1px var(--primary-color);
+}
+
+.dropdownArrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--tertiary-white);
+  font-size: 10px;
+}
+
+/* Style the dropdown options */
+.fileTypeDropdown option {
+  background-color: #282828;
+  color: var(--pure-white);
+  padding: 8px 12px;
+}
+
+/* Style the dropdown when it's open */
+.fileTypeDropdown:focus ~ .dropdownArrow {
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .searchQuery {

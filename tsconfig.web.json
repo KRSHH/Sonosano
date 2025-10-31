@@ -11,6 +11,7 @@
   "compilerOptions": {
     "composite": true,
     "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "baseUrl": ".",
     "types": ["electron-vite/node"],
     "paths": {

@@ -1,12 +1,17 @@
+import * as React from 'react'
 import { useTranslation } from 'react-i18next'
-import * as styles from './songDetailSidebar.module.css'
+import { useState, useMemo } from 'react'
+// @ts-expect-error - Module is a CSS module, TypeScript needs to be informed about the import type
+import styles from './songDetailSidebar.module.css'
 import { formatBytes, formatDuration } from '../../utils/format'
 import { sortSoulseekFiles } from '../../utils/fileSorter'
-import { useSongDetailSidebar } from '../../providers/SongDetailSidebarProvider'
-import { getStatusMessageKey, getStatusColor } from '../../utils/statusUtils'
+// @ts-expect-error - Module is a CSS module, TypeScript needs to be informed about the import type
+import { useSongDetailSidebar } from '../../providers/SongDetailSidebarProvider.tsx'
+// @ts-expect-error - Module is a CSS module, TypeScript needs to be informed about the import type
+import { getStatusMessageKey, getStatusColor } from '../../utils/statusUtils.tsx'
 
 const SongDetailSidebar = () => {
-  const { t } = useTranslation() // <-- Use hook
+  const { t } = useTranslation()
   const {
     selectedSong,
     soulseekFiles,
@@ -17,7 +22,26 @@ const SongDetailSidebar = () => {
     setSelectedSong,
   } = useSongDetailSidebar()
 
-  const sortedFiles = sortSoulseekFiles(soulseekFiles, searchQuery)
+  const [selectedFileType, setSelectedFileType] = useState<string>('all')
+
+  // Get unique file extensions from the files
+  const fileTypes = useMemo(() => {
+    const extensions = new Set<string>()
+    soulseekFiles.forEach((file) => {
+      if (file.extension) {
+        extensions.add(file.extension.toLowerCase())
+      }
+    })
+    return Array.from(extensions).sort()
+  }, [soulseekFiles])
+
+  // Filter files by selected file type
+  const filteredFiles = useMemo(() => {
+    if (!selectedFileType || selectedFileType === 'all') return soulseekFiles
+    return soulseekFiles.filter((file) => file.extension?.toLowerCase() === selectedFileType.toLowerCase())
+  }, [soulseekFiles, selectedFileType])
+
+  const sortedFiles = sortSoulseekFiles(filteredFiles, searchQuery)
 
   const onClose = () => {
     setSelectedSong(null)
@@ -26,9 +50,6 @@ const SongDetailSidebar = () => {
   if (!selectedSong) {
     return null
   }
-
-  // Use the searchQuery passed from parent which contains the actual query used by backend
-  const displayQuery = searchQuery || `${selectedSong.artist || ''} ${selectedSong.title}`.trim()
 
   return (
     <div className={styles.sidebarContainer}>
@@ -79,13 +100,25 @@ const SongDetailSidebar = () => {
       </div>
 
       <div className={styles.filesHeader}>
-        <h3 className={styles.filesTitle}>
-          {t('songDetailSidebar.availableFiles', {
-            count: sortedFiles.length,
-            total: soulseekFiles.length > 100 ? ` of ${soulseekFiles.length}` : '',
-          })}
-          - <span className={styles.searchQuery}>"{displayQuery}"</span>
-        </h3>
+        <h3 className={styles.filesTitle}>{`${sortedFiles.length} Available Files`}</h3>
+        {fileTypes.length > 0 && (
+          <div className={styles.dropdownContainer}>
+            <select
+              value={selectedFileType}
+              onChange={(e) => setSelectedFileType(e.target.value)}
+              className={styles.fileTypeDropdown}
+              aria-label={t('songDetailSidebar.filterByFileType')}
+            >
+              <option value="all">{t('common.allFiles', 'All Files')}</option>
+              {fileTypes.map((ext) => (
+                <option key={ext} value={ext}>
+                  {ext.toUpperCase().replace('.', '')}
+                </option>
+              ))}
+            </select>
+            <div className={styles.dropdownArrow}>▼</div>
+          </div>
+        )}
       </div>
 
       {sidebarLoading ? (
