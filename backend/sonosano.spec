@@ -5,6 +5,12 @@ from PyInstaller.utils.hooks import collect_data_files
 datas = [('src/pynicotine', 'pynicotine')]
 datas += collect_data_files('uroman')
 
+excluded_modules = [
+    'tkinter', 'test', 'unittest', 'pydoc', 'pdb', 'distutils',
+    'PyQt5', 'PyQt6', 'PySide2', 'PySide6', 'wx', 'Gtk', 'GTK', 
+    'pandas', 'notebook', 'share', 'icons', 'ipython', 'jedi'
+]
+
 a = Analysis(
     ['src/main.py'],
     pathex=[],
@@ -12,9 +18,9 @@ a = Analysis(
     datas=datas,
     hiddenimports=[],
     hookspath=[],
-   hooksconfig={},
+    hooksconfig={},
     runtime_hooks=[],
-    excludes=[],
+    excludes=excluded_modules,
     noarchive=False,
 )
 pyz = PYZ(a.pure)
