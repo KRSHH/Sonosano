@@ -1,6 +1,13 @@
+# to the people asking: ts ain't dead, I am still working on it. and not just soulseek or bittorrent, we're gonna make the most accessible P2P file sharing network which won't limited by stupid CGNAT requirements. Plz don't make any PRs rn. some people might not like... that this app becomes something new with every update, but it remains the same at the end of the day - a P2P song player. 
+
 <div align="center">
   <img src="assets/readme/Banner.png" width="100%">
 </div>
+
+<p align="center">
+  <img src="https://img.shields.io/github/downloads/KRSHH/Sonosano/total">
+  <a href="https://discord.gg/Np7YYEVPhR"><img src="https://img.shields.io/discord/1411737769675329558"></a>
+</p>
 
 <h3 align="center"><b>Preserve, Archive, share, analyse and enjoy high quality music</b></h3>
 
