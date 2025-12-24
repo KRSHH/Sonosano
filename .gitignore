@@ -14,3 +14,6 @@ backend/src/config
 backend/src/downloads
 backend/src/core/downloads
 .kilocode
+# Python venv
+backend/.venv/
+.venv/
