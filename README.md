@@ -1,4 +1,4 @@
-# to the people asking: ts ain't dead, I am still working on it. and not just soulseek or bittorrent, we're gonna make the most accessible P2P file sharing network which won't limited by stupid CGNAT requirements. Plz don't make any PRs rn. some people might not like... that this app becomes something new with every update, but it remains the same at the end of the day - a P2P song player. 
+# to the people asking: ts ain't dead, I am still working on it. and not just soulseek or bittorrent, we're gonna make the most accessible P2P file sharing network which won't limited by the profoundly evil CGNAT. Plz don't make any PRs rn. some people might not like... that this app becomes something new with every update, but it remains the same at the end of the day - a P2P song player. 
 
 <div align="center">
   <img src="assets/readme/Banner.png" width="100%">
@@ -244,3 +244,17 @@
 <p align="center">
   <em>— Proceed Accordingly. —</em>
 </p>
+
+
+If you want, next I can:
+
+give you a better, more professional Disclaimer
+
+or make the current one more formatted
+
+Just tell me.
+
+
+
+No file chosenNo file chosen
+ChatGPT can make mistakes. Check important info. See Cookie Preferences.
