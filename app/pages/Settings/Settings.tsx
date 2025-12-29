@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next' // Import useTranslation
 import styles from './settings.module.css'
 import { apiClient } from '../../api'
 import { availableLanguages } from '../../i18n/languages' // Import languages
+import { systemAdapter } from '@/app/lib/systemAdapter'
 
 // ... (interfaces remain the same)
 interface SearchMode {
@@ -64,7 +65,7 @@ export default function Settings(_props: PropsSettings) {
   }
 
   const handleSelectFolder = async () => {
-    const paths = await window.conveyor.window.openFolderDialog()
+    const paths = await systemAdapter.app.openFolderDialog()
     if (paths && paths.length > 0) {
       setDataPath(paths[0])
     }

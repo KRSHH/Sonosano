@@ -6,6 +6,7 @@ import { t } from 'i18next'
 import styles from '../contextMenu.module.css'
 import { PropsContextMenuSong } from '../types/contextMenu.types'
 import { apiClient } from '../../../../api'
+import { systemAdapter } from '@/app/lib/systemAdapter'
 
 export default function ContextMenuSong({
   songName,
@@ -30,9 +31,9 @@ export default function ContextMenuSong({
 
   const [triggerOpenConfirmationModal, setTriggerOpenConfirmationModal] = useState(false)
 
-  const handleCopyToClipboard = (): void => {
+  const handleCopyToClipboard = async (): Promise<void> => {
     const songInfoText = `${artistName} - ${songName}`
-    window.conveyor.window.copyToClipboard(songInfoText)
+    await systemAdapter.app.copyToClipboard(songInfoText)
     setTriggerOpenConfirmationModal(true)
   }
 

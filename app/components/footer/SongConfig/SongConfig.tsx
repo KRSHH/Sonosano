@@ -7,6 +7,7 @@ import styles from './songConfig.module.css'
 import VolumeSlider from './VolumeSlider/VolumeSlider'
 import TimerMenu from './TimerMenu/TimerMenu'
 import TimePicker from './TimePicker/TimePicker'
+import { systemAdapter } from '@/app/lib/systemAdapter'
 
 interface PropsSongConfig {
   changeVolume: (volume: number) => void
@@ -25,7 +26,7 @@ export default function SongConfig({ changeVolume, setTimerState }: PropsSongCon
   const { currentSong, isPlaying } = playbackState
 
   const handleFullScreen = (): void => {
-    window.conveyor.window.webToggleFullscreen()
+    systemAdapter.window.toggleFullscreen()
   }
 
   const handleShowInExplorer = async (): Promise<void> => {

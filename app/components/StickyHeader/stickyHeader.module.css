@@ -198,7 +198,7 @@
   pointer-events: none;
 }
 
-.searchInput:focus ~ .keyboardHint,
+.searchInput:focus~.keyboardHint,
 .searchWrapper:hover .keyboardHint {
   display: none;
 }

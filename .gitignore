@@ -1,16 +1,35 @@
+# Dependencies
 node_modules
+
+# Build output
 dist
 out
+
+# Tauri build artifacts
+src-tauri/target
+
+# OS files
 .DS_Store
 *.log*
 temp
 
 # Python
-
 venv
 __pycache__
-sonosano_data
+backend/build
+backend/dist
 backend/src/config
 backend/src/downloads
 backend/src/core/downloads
+
+# App data
+sonosano_data
+
+# IDE
 .kilocode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

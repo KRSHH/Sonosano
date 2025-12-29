@@ -1,5 +1,4 @@
 import { Route, Routes, useLocation } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 import { useState, useEffect, useRef } from 'react'
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import Playlists from '../pages/Playlists/Playlists'
@@ -156,9 +155,6 @@ const AppContent = () => {
 }
 
 function App() {
-  const { t } = useTranslation()
-  const [updateReady, setUpdateReady] = useState(false)
-
   useEffect(() => {
     songDataService.initialize()
 
@@ -169,54 +165,17 @@ function App() {
       1000 * 60 * 30
     )
 
-    const handleUpdateReady = () => {
-      setUpdateReady(true)
-    }
-    if (window.electron && window.electron.ipcRenderer) {
-      window.electron.ipcRenderer.on('update-ready', handleUpdateReady)
-    }
-
     return () => {
       clearInterval(cacheCleanupInterval)
-      if (window.electron && window.electron.ipcRenderer) {
-        window.electron.ipcRenderer.removeListener('update-ready', handleUpdateReady)
-      }
     }
   }, [])
 
   return (
-    <>
-      <SongDetailSidebarProvider>
-        <PlaybackProvider>
-          <AppContent />
-        </PlaybackProvider>
-      </SongDetailSidebarProvider>
-      {updateReady && (
-        <div
-          style={{
-            position: 'fixed',
-            bottom: '100px',
-            right: '20px',
-            background: '#333',
-            color: 'white',
-            padding: '10px',
-            borderRadius: '5px',
-            zIndex: 10000,
-          }}
-        >
-          <p>{t('app.updateReady')}</p>
-          <button
-            onClick={() => {
-              if (window.electron && window.electron.ipcRenderer) {
-                window.electron.ipcRenderer.sendMessage('install-update')
-              }
-            }}
-          >
-            {t('app.restartAndInstall')}
-          </button>
-        </div>
-      )}
-    </>
+    <SongDetailSidebarProvider>
+      <PlaybackProvider>
+        <AppContent />
+      </PlaybackProvider>
+    </SongDetailSidebarProvider>
   )
 }
 

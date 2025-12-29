@@ -9,23 +9,43 @@ jobs:
   build:
     permissions:
       contents: write
-    runs-on: ${{ matrix.os }}
-
     strategy:
+      fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        include:
+          - platform: 'macos-latest'
+            args: '--target aarch64-apple-darwin'
+          - platform: 'macos-latest'
+            args: '--target x86_64-apple-darwin'
+          - platform: 'ubuntu-22.04'
+            args: ''
+          - platform: 'windows-latest'
+            args: ''
+
+    runs-on: ${{ matrix.platform }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: lts/*
+
+      - name: Install Rust stable
+        uses: dtolnay/rust-action@stable
+        with:
+          targets: ${{ matrix.platform == 'macos-latest' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
+
+      - name: Install Linux dependencies
+        if: matrix.platform == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -35,38 +55,20 @@ jobs:
           pip install -r backend/requirements.txt
           pip install pyinstaller
 
-      - name: Install dependencies
+      - name: Build Python backend
+        run: node scripts/build-backend.js
+
+      - name: Install frontend dependencies
         run: npm install
 
-      - name: Build the app (Windows)
-        if: matrix.os == 'windows-latest'
-        run: npm run build:win
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build the app (macOS)
-        if: matrix.os == 'macos-latest'
-        run: npm run build:mac
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install snapcraft
-        if: matrix.os == 'ubuntu-latest'
-        run: sudo snap install snapcraft --classic
-      - name: Build the app (Linux)
-        if: matrix.os == 'ubuntu-latest'
-        run: npm run build:linux
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v2
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          files: |
-            dist/Sonosano-setup.exe
-            dist/Sonosano.dmg
-            dist/Sonosano_*.deb
-            dist/backend/sonosano-backend*
+      - name: Build Tauri app
+        uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: 'Sonosano v__VERSION__'
+          releaseBody: 'See the assets to download this version and install.'
+          releaseDraft: true
+          prerelease: false
+          args: ${{ matrix.args }}

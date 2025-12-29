@@ -1,0 +1,26 @@
+[package]
+name = "sonosano"
+version = "0.3.2"
+description = "P2P Song Player"
+authors = ["KRSHH"]
+edition = "2021"
+license = "Apache-2.0"
+
+[lib]
+name = "sonosano_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "sonosano"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-clipboard-manager = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

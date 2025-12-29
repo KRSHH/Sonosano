@@ -1,21 +1,70 @@
 {
   "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "@/app/*": ["./app/*"],
-      "@/lib/*": ["./app/lib/*"],
-      "@/resources/*": ["./resources/*"],
-      "components/*": ["app/components/*"],
-      "pages/*": ["app/pages/*"],
-      "hooks/*": ["app/hooks/*"],
-      "providers/*": ["app/providers/*"],
-      "utils/*": ["app/utils/*"],
-      "global/*": ["app/global/*"],
-      "i18n/*": ["app/i18n/*"],
-      "types/*": ["app/types/*"]
+      "@/*": [
+        "./*"
+      ],
+      "@/app/*": [
+        "./app/*"
+      ],
+      "@/lib/*": [
+        "./app/lib/*"
+      ],
+      "@/resources/*": [
+        "./resources/*"
+      ],
+      "components/*": [
+        "app/components/*"
+      ],
+      "pages/*": [
+        "app/pages/*"
+      ],
+      "hooks/*": [
+        "app/hooks/*"
+      ],
+      "providers/*": [
+        "app/providers/*"
+      ],
+      "utils/*": [
+        "app/utils/*"
+      ],
+      "global/*": [
+        "app/global/*"
+      ],
+      "i18n/*": [
+        "app/i18n/*"
+      ],
+      "types/*": [
+        "app/types/*"
+      ]
     }
   },
-  "files": [],
-  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.web.json" }]
+  "include": [
+    "app/**/*",
+    "resources/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "src-tauri"
+  ]
 }

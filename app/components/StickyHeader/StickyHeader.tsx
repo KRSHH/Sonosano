@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import styles from './stickyHeader.module.css'
 import appIcon from '../../../assets/icon.png'
 import SystemStatusIndicator from '../SystemStatusIndicator/SystemStatusIndicator'
+import { systemAdapter } from '@/app/lib/systemAdapter'
 
 interface PropsStickyHeader {
   closeSidebar?: () => void
@@ -17,15 +18,11 @@ export default function StickyHeader({ closeSidebar }: PropsStickyHeader) {
 
   useEffect(() => {
     const getPlatform = async () => {
-      if (window.conveyor) {
-        try {
-          const windowInfo = await window.conveyor.window.windowInit()
-          setPlatform(windowInfo.platform)
-        } catch (error) {
-          console.error('Failed to get window info:', error)
-        }
-      } else {
-        setTimeout(getPlatform, 100)
+      try {
+        const windowInfo = await systemAdapter.window.init()
+        setPlatform(windowInfo.platform)
+      } catch (error) {
+        console.error('Failed to get window info:', error)
       }
     }
     getPlatform()
@@ -103,15 +100,15 @@ export default function StickyHeader({ closeSidebar }: PropsStickyHeader) {
   }, [location.search])
 
   const handleMinimize = () => {
-    window.conveyor.window.windowMinimize()
+    systemAdapter.window.minimize()
   }
 
   const handleMaximize = () => {
-    window.conveyor.window.windowMaximizeToggle()
+    systemAdapter.window.toggleMaximize()
   }
 
   const handleClose = () => {
-    window.conveyor.window.windowClose()
+    systemAdapter.window.close()
   }
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
