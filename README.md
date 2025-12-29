@@ -1,4 +1,4 @@
-# to the people asking: ts ain't dead, I am still working on it. and not just soulseek or bittorrent, we're gonna make the most accessible P2P file sharing network which won't limited by the profoundly evil CGNAT. Plz don't make any PRs rn. some people might not like... that this app becomes something new with every update, but it remains the same at the end of the day - a P2P song player. 
+# to the people asking: ts ain't dead, I am still working on it. and not just soulseek or bittorrent, we're gonna make the most accessible P2P file sharing network which won't limited by the profoundly evil CGNAT. Plz don't make any PRs rn. some people might not like... that this app becomes something new with every update, but it remains the same at the end of the day - a P2P song player.
 
 <div align="center">
   <img src="assets/readme/Banner.png" width="100%">
@@ -99,50 +99,58 @@
 </table>
 </div>
 
-
 # FAQ
 
 **Does this app stream from peers?**
+
 > No, It does not stream from peers, it streams from the user himself after the file is saved.
 
 ---
 
 **Will there only be one P2P source?**
+
 > No, making it a large P2P source aggregator is the grand plan.
 
 ---
 
 **Which files does this app reshare back to the P2P network?**
+
 > Every single one of the file that you download or put in your library gets reshared back.
 
 ---
 
 **How is it different from any other P2P client?**
+
 > It's not, infact, it uses well known and maintained Nicotine+ in backend.
 
 ---
 
 **Can it replace my current music streaming service/provider?**
+
 > No, this is not a replacement, they are simply a lot more convenient, thats why only enthusiasts actually stick around.
 
 ---
 
 **How accurate is the fake flac analyser?**
+
 > The algo works well with low effort fake flac (which are the most popular type of fakes) and fails with old files but, it just tags the audio and doesn't actually remove them so that you can see for yourself too.
 
 ---
 
 **How big is the library?**
+
 > Depends. larger than any other service, but you might find things there that you can't here.
 
 ---
 
 **Do I have to setup anything else to use the app?**
+
 > No, besides network requirments, its standalone.
 
 ---
 
 **What does Sonosano mean?**
+
 > Pure/healthy Sound, name inspired from 20th century grape bricks.
 
 # The Sonosano Team
@@ -245,7 +253,6 @@
   <em>— Proceed Accordingly. —</em>
 </p>
 
-
 If you want, next I can:
 
 give you a better, more professional Disclaimer
@@ -253,8 +260,6 @@ give you a better, more professional Disclaimer
 or make the current one more formatted
 
 Just tell me.
-
-
 
 No file chosenNo file chosen
 ChatGPT can make mistakes. Check important info. See Cookie Preferences.
