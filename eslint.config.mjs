@@ -19,6 +19,8 @@ export default [
       'assets/assets.d.ts',
       'scripts/build-backend.js',
       'backend/venv/**',
+      'src-tauri/**',
+      'vite.config.ts',
     ],
   },
   eslint.configs.recommended,
