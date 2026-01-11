@@ -1,4 +1,5 @@
-# to the people asking: ts ain't dead, I am still working on it. and not just soulseek or bittorrent, we're gonna make the most accessible P2P file sharing network which won't limited by the profoundly evil CGNAT. Plz don't make any PRs rn. some people might not like... that this app becomes something new with every update, but it remains the same at the end of the day - a P2P song player. 
+<h1 align="center">-- UNDER HEAVY DEVELOPMENT --</h1>
+
 
 <div align="center">
   <img src="assets/readme/Banner.png" width="100%">
