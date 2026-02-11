@@ -245,17 +245,3 @@
 <p align="center">
   <em>— Proceed Accordingly. —</em>
 </p>
-
-
-If you want, next I can:
-
-give you a better, more professional Disclaimer
-
-or make the current one more formatted
-
-Just tell me.
-
-
-
-No file chosenNo file chosen
-ChatGPT can make mistakes. Check important info. See Cookie Preferences.
