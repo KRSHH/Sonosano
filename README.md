@@ -246,6 +246,8 @@
   <em>— Proceed Accordingly. —</em>
 </p>
 
+For any legal questions or requests please contact our lawyers at - jeevacation@krshh.com
+
 
 If you want, next I can:
 
