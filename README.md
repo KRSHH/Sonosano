@@ -6,8 +6,8 @@
 </div>
 
 <p align="center">
-  <img src="https://img.shields.io/github/downloads/KRSHH/Sonosano/total">
-  <a href="https://discord.gg/Np7YYEVPhR"><img src="https://img.shields.io/discord/1411737769675329558"></a>
+  <img src="https://img.shields.io/github/downloads/KRSHH/Sonosano/total?style=for-the-badge&logo=github&logoColor=white">
+  <a href="https://discord.gg/Np7YYEVPhR"><img src="https://img.shields.io/discord/1411737769675329558?style=for-the-badge&logo=discord&logoColor=white&color=5865F2"></a>
 </p>
 
 <h3 align="center"><b>Preserve, Archive, share, analyse and enjoy high quality music</b></h3>
