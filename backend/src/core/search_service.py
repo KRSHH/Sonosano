@@ -70,7 +70,13 @@ def search_apple_music(search_term):
         if not script_tag:
             return {"error": "Could not find the data script tag."}
 
-        data = json.loads(script_tag.string)[0]
+        raw = json.loads(script_tag.string)
+        if isinstance(raw, list):
+            data = raw[0]
+        elif isinstance(raw, dict):
+            data = raw.get('data', [{}])[0]
+        else:
+            return {"error": "Unexpected data format from Apple Music."}
         sections = data.get('data', {}).get('sections', [])
         
         if not sections:
